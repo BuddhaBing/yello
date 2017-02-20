@@ -42,7 +42,7 @@ feature 'restaurants' do
     before { Restaurant.create name: "Nandos", description: "Cheeky chicken", id: 1 }
     scenario 'let a user edit a restaurant' do
       visit '/restaurants'
-      click_link 'Nandos'
+      click_link 'Edit Nandos'
       fill_in 'Name', with: 'Nandos'
       fill_in 'Description', with: 'Cheeky chicken'
       click_button 'Update Restaurant'
