@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'	
+ruby '2.3.3'
 
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -31,6 +31,7 @@ gem 'pry', require: false
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'devise'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
