@@ -9,6 +9,7 @@ def sign_up
 end
 
 def log_in
+  visit '/'
   click_link 'Log In'
   fill_in 'user_email', with: 'joe@example.com'
   fill_in 'user_password', with: 'shoobydooby'

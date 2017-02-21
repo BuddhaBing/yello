@@ -20,6 +20,7 @@ feature 'restaurants' do
   end
   context 'creating restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
+      sign_up
       visit '/restaurants'
       click_link 'Add a restaurant'
       fill_in 'Name', with: "Nandos"
@@ -29,6 +30,7 @@ feature 'restaurants' do
     end
     context "an invalid restaurant" do
       scenario 'does not let you submit a name that is too short' do
+      sign_up
       visit '/restaurants'
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'na'
@@ -62,7 +64,7 @@ feature 'restaurants' do
       expect(current_path).to eq '/restaurants/1'
     end
   end
-  context 'deleting restuarants' do
+  context 'deleting restaurants' do
     before { Restaurant.create name: 'Nandos', description: 'good veggie options'}
 
     scenario 'removes a resturant when a user clicks a delete link' do
