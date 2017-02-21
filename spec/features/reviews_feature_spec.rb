@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 feature 'reviewing' do
@@ -11,5 +10,12 @@ feature 'reviewing' do
     click_button 'Leave Review'
     expect(current_path).to eq '/restaurants/30'
     expect(page).to have_content('so so')
+  end
+  scenario 'user cannot review their own restaurant' do
+    sign_up
+    add_restaurant
+    visit '/restaurants'
+    click_link 'Review Nandos'
+    expect(page).to have_content("You cannot review your own restaurant")
   end
 end
