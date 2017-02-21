@@ -32,6 +32,8 @@ gem 'pry', require: false
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+
+gem 'require_all'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
