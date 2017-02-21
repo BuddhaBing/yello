@@ -7,12 +7,11 @@ html
     = csrf_meta_tags
 
   body
-    = link_to "Sign Up",  new_user_registration_path
-    br
-    = link_to "Log In",  new_user_session_path
-    br
-    = link_to('Logout', destroy_user_session_path, :method => :delete)
-
-    = alert
-    = notice
-    = yield
+  - if !current_user
+    = link_to "Sign Up",  new_user_registration_path, class: "session-link"
+    = link_to "Log In",  new_user_session_path, class: "session-link"
+  - if current_user
+    = link_to('Logout', destroy_user_session_path, :method => :delete, class: "session-link")
+  = alert
+  = notice
+  = yield
