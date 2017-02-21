@@ -5,11 +5,8 @@ feature 'sign in' do
     scenario 'user can sign in to website after creating account' do
       sign_up
       click_link 'Logout'
-      click_link 'Log In'
-      fill_in 'user_email', with: 'joe@example.com'
-      fill_in 'user_password', with: 'shoobydooby'
-      click_button 'Log in'
-      expect(current_user).to eq(nil)
+      log_in
+      expect(page).to have_content 'Signed in successfully'
     end
   end
   context 'signing out' do
