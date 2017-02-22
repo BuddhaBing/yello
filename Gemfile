@@ -29,6 +29,8 @@ gem 'slim'
 gem 'poltergeist', require: false
 gem 'pry', require: false
 
+gem 'omniauth-facebook'
+gem 'omniauth-google'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
