@@ -8,7 +8,7 @@ feature 'reviewing' do
   
   scenario 'allows users to leave a review using a form' do
     sign_out
-    sign_up_other_user
+    sign_up(name: "billy", email: 'billy@example.com')
     add_review
     expect(page).to have_content('so so')
   end

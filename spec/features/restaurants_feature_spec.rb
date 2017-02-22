@@ -26,12 +26,12 @@ feature 'restaurants' do
     end
   end
 
-  context ' single resturant exists' do
+  context ' single resturant exists and user is owner ' do
     before (:each) do
       sign_up
       create_restaurant
     end
-
+    
     scenario 'display restuarants' do
       visit '/restaurants'
       expect(page).to have_content('Nandos')
