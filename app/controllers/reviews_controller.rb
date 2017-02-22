@@ -6,8 +6,13 @@ class ReviewsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @restaurant.reviews.create(review_params.merge(:user_id => current_user.id))
-    redirect_to "/restaurants/#{@restaurant.id}"
+    @restaurant.reviews.new(review_params.merge(:user_id => current_user.id))
+    if @restaurant.save
+      redirect_to "/restaurants/#{@restaurant.id}"
+    else
+      flash[:notice] = 'You\'ve already reviewed this restaurant'
+      redirect_to "/restaurants/#{@restaurant.id}/reviews/new"
+    end
   end
 
   private
