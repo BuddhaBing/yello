@@ -7,8 +7,6 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-    p Rails.application.secrets
-    
     @restaurants = Restaurant.all
   end
 
