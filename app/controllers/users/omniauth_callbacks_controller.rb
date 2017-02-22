@@ -2,9 +2,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
   def facebook
-    p "attempting to auth"
+    p Rails.application.secrets.facebook_app_id
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    p @user
+
     if @user.persisted?
       sign_in_and_redirect @user, :event =>  authenticate_user!
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
@@ -15,7 +15,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    p "failure"
     redirect_to '/'
   end
   # You should also create an action method in this controller like this:
