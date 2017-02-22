@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @review = Review.new
+    if owner?(@restaurant)
+      redirect_to '/restaurants'
+      flash[:notice] = "You can't review your own restaurant"
+    else
+      @review = Review.new
+    end
   end
 
   def create
