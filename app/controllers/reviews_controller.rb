@@ -1,11 +1,6 @@
 class ReviewsController < ApplicationController
   def new
-    # @owner = Restaurant.all(user_id: current_user.id)
-
     @restaurant = Restaurant.find(params[:restaurant_id])
-    p @restaurant
-    @owner = @restaurant.user_id
-    p @owner
     @review = Review.new
   end
 
