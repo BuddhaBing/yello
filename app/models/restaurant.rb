@@ -3,4 +3,9 @@ class Restaurant < ActiveRecord::Base
   validates :user_id, presence: true
 
   validates :name, length: { minimum: 3 }, uniqueness: true
+
+  def rating
+
+  end
+  
 end

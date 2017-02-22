@@ -31,7 +31,7 @@ feature 'restaurants' do
       sign_up
       create_restaurant
     end
-    
+
     scenario 'display restuarants' do
       visit '/restaurants'
       expect(page).to have_content('Nandos')
@@ -64,6 +64,16 @@ feature 'restaurants' do
   scenario 'cannot create a restaurant if not logged in' do
     visit '/'
     expect(page).not_to have_link('Add a restaurant')
+  end
+
+  scenario 'can view average star rating for restaurants' do
+    sign_up
+    create_restaurant
+    sign_out
+    sign_up_other_user
+    add_review
+    visit '/'
+    expect(page.find_by_id('restaurant-1-rating')).to have_content("&#9733 &#9733 &#9733 &#9733 &#9733")
   end
 
 end
