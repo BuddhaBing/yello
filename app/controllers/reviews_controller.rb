@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
   def new
+    if !user_signed_in?
+      redirect_to "/"
+      flash[:notice] = 'you can\'t review when not logged in you naughty person'
+    end
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
   end
