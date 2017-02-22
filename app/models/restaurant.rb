@@ -5,7 +5,10 @@ class Restaurant < ActiveRecord::Base
   validates :name, length: { minimum: 3 }, uniqueness: true
 
   def rating
-
+    sum = 0
+    self.reviews.each do |review|
+      sum += review.rating
+    end
+    sum/self.reviews.count
   end
-  
 end
