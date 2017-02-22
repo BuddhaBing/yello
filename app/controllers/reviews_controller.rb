@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @restaurant.reviews.create(review_params)
+    @restaurant.reviews.create(review_params.merge(:user_id => current_user.id))
     redirect_to "/restaurants/#{@restaurant.id}"
   end
 
