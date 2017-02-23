@@ -4,7 +4,7 @@ div class="reviews"
   h4
     | Reviews
   | Average rating: 
-  span class="stars" id="restaurant-#{@restaurant.id}-rating" = "★" * @restaurant.rating
+  span class="stars" id="restaurant-#{@restaurant.id}-rating" = star_icons(@restaurant.rating)
 - @restaurant.reviews.all.each do |review|
   p = review.thoughts
     = review.rating

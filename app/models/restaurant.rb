@@ -6,6 +6,6 @@ class Restaurant < ActiveRecord::Base
 
   def rating
     return 0 if reviews.count == 0
-    reviews.map { |review| review.rating }.reduce(0, :+) / reviews.count
+    (reviews.map { |review| review.rating }.reduce(0.0, :+) / reviews.count * 2).floor
   end
 end
