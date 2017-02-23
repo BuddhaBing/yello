@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 feature 'reviewing' do
-  
+
   before(:each) do
     sign_up
     create_restaurant
   end
-  
+
   scenario 'allows users to leave a review using a form' do
     sign_out
     sign_up(name: "billy", email: 'billy@example.com')
@@ -21,7 +21,7 @@ feature 'reviewing' do
 
   scenario 'user can only review each restaurant once' do
     sign_out
-    sign_up_other_user
+    sign_up(name: 'Johnny', email: 'johnny@example.com')
     add_review
     expect{add_review}.not_to change{Review.all.length}
     expect(page).to have_content "You've already reviewed this restaurant"
