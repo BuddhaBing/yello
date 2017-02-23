@@ -24,6 +24,22 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    if !owner?(@restaurant)
+      redirect_to '/restaurants'
+      flash[:notice] = "You can only edit reviews that you wrote"
+    end
+    @review = @restaurant.reviews.find(params[:id])
+  end
+
+  def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to '/restaurants'
+    flash[:notice] = 'Review edited successfully'
+  end
+
   def destroy
     restaurant = Restaurant.find(params[:restaurant_id])
     review = restaurant.reviews.find(params[:id])

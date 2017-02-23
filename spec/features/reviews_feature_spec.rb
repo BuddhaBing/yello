@@ -59,4 +59,23 @@ feature 'reviewing' do
     end
 
   end
+
+  context 'editing reviews' do
+
+    before(:each) do
+      sign_up
+      create_restaurant
+      sign_out
+      sign_up(name: 'Johnny', email: 'johnny@example.com')
+      add_review
+    end
+
+    it 'users can edit their own reviews' do
+      edit_review
+      expect(page).to have_content("Review edited successfully")
+      visit "/restaurants/#{Restaurant.first.id}"
+      expect(page).to have_content("Updated review: Awesome!")
+    end
+
+  end
 end
