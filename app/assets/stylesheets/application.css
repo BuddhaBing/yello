@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- .session-link, .restaurant_links {
-    margin-right: .5em;
-}

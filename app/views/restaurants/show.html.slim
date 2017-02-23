@@ -1,6 +1,20 @@
+
 p = @restaurant.name
 p = @restaurant.description
 img src="#{@restaurant.rest_image(:large)}"
-- @restaurant.reviews.all.each do |review|
-  p = review.thoughts
-    = review.rating
+
+
+div class="reviews"
+  h4
+    | Reviews
+  | Average rating:
+  span class="stars" id="restaurant-#{@restaurant.id}-rating" = star_icons(@restaurant.rating)
+  - @restaurant.reviews.all.each do |review|
+    article.review
+      header.review-heading
+        span.reviewer-name = reviewer_name(review)
+        span.stars = star_icons(review.rating * 2)
+      section.thoughts
+        = review.thoughts
+      - if reviewer?(review)
+        = link_to "Delete review", restaurant_review_path(@restaurant.id, review.id), method: :delete, class: "delete-review"
