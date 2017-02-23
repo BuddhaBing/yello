@@ -70,10 +70,13 @@ feature 'restaurants' do
     sign_up
     create_restaurant
     sign_out
-    sign_up_other_user
-    add_review
+    sign_up(name:"john", email: 'john@example.com', password: 'shoobydooby')
+    add_review(3)
+    sign_out
+    sign_up(name:"paul", email: 'paul@example.com', password: 'shoobydooby')
+    add_review(5)
     visit '/'
-    expect(page.find_by_id('restaurant-1-rating')).to have_content("&#9733 &#9733 &#9733 &#9733 &#9733")
+    expect(page.find_by_id("restaurant-#{Restaurant.first.id}-rating")).to have_content("★★★★")
   end
 
 end
