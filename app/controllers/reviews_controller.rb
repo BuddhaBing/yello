@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  include ReviewsHelper
+
   def new
     if !user_signed_in?
       redirect_to "/"
@@ -22,6 +24,22 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'You\'ve already reviewed this restaurant'
       redirect_to "/restaurants/#{@restaurant.id}/reviews/new"
     end
+  end
+
+  def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.find(params[:id])
+    if !reviewer?(@review)
+      redirect_to '/restaurants'
+      flash[:notice] = "You can only edit reviews that you wrote"
+    end
+  end
+
+  def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to '/restaurants'
+    flash[:notice] = 'Review edited successfully'
   end
 
   def destroy
