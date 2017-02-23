@@ -85,4 +85,30 @@ feature 'restaurants' do
     visit '/'
     expect(page).not_to have_link('Add a restaurant')
   end
+  
+  context 'viewing average rating' do
+
+    before(:each) do
+      sign_up
+      create_restaurant
+      sign_out
+      sign_up(name:"john", email: 'john@example.com', password: 'shoobydooby')
+      add_review(3)
+      sign_out
+      sign_up(name:"paul", email: 'paul@example.com', password: 'shoobydooby')
+      add_review(5)
+    end
+
+    scenario 'can view average star rating for all reviewed restaurants' do
+      visit '/'
+      expect(page.find_by_id("restaurant-#{Restaurant.first.id}-rating")).to have_content("★★★★")
+    end
+
+    scenario 'can view average star rating for an individual restaurant' do
+      visit "/restaurants/#{Restaurant.first.id}"
+      expect(page.find_by_id("restaurant-#{Restaurant.first.id}-rating")).to have_content("★★★★")
+    end
+
+  end
+
 end
