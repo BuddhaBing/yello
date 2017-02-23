@@ -10,5 +10,5 @@ class Restaurant < ActiveRecord::Base
   validates :user_id, presence: true
   validates :name, length: { minimum: 3 }, uniqueness: true
   validates_attachment_content_type :rest_image, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_size less_than: 3.megabytes
+  validates_with AttachmentSizeValidator, attributes: :rest_image, less_than: 3.megabytes
 end
