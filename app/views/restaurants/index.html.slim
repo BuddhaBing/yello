@@ -3,7 +3,7 @@
     article
       header 
         = link_to restaurant.name, restaurant_path(restaurant), class: "restaurant_links"
-        span id="restaurant-#{restaurant.id}-rating" = "★" * restaurant.rating
+        span class="stars" id="restaurant-#{restaurant.id}-rating" = "★" * restaurant.rating
       = link_to "Edit #{restaurant.name}",  edit_restaurant_path(restaurant), class: "restaurant_links"
       = link_to "Delete #{restaurant.name}",restaurant_path(restaurant), method: :delete, class: "restaurant_links"
       - if !owner?(restaurant)
