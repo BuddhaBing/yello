@@ -26,7 +26,7 @@ feature 'restaurants' do
     end
   end
 
-  context ' single resturant exists' do
+  context ' single resturant exists and user is owner ' do
     before (:each) do
       sign_up
       create_restaurant
@@ -59,11 +59,30 @@ feature 'restaurants' do
       expect(current_path).to eq "/restaurants/#{Restaurant.first.id}"
     end
 
+    context 'editing/deleting restaurants' do
+      before (:each)do
+        sign_out
+        sign_up(name: 'Jim', email: 'jim@example.com')
+      end
+
+      scenario 'users can only see edit links for restaurants they own' do
+        expect(page).not_to have_link "Edit Nandos"
+      end
+
+      scenario "users are redirected if they try to visist edit url for restaurants they don't own" do
+        visit "/restaurants/#{Restaurant.first.id}/edit"
+        expect(current_path).to eq '/restaurants'
+        expect(page).to have_content 'You can only edit restaurants you own'
+      end
+
+      scenario "users can only see delete links for restaurants they own" do
+        expect(page).not_to have_link "Delete Nandos"
+      end
+    end
   end
 
   scenario 'cannot create a restaurant if not logged in' do
     visit '/'
     expect(page).not_to have_link('Add a restaurant')
   end
-
 end

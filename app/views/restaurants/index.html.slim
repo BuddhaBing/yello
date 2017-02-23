@@ -1,8 +1,9 @@
 - if @restaurants.any?
   - @restaurants.each do |restaurant|
     h2 = link_to restaurant.name, restaurant_path(restaurant), class: "restaurant_links"
-    = link_to "Edit #{restaurant.name}",  edit_restaurant_path(restaurant), class: "restaurant_links"
-    = link_to "Delete #{restaurant.name}",restaurant_path(restaurant), method: :delete, class: "restaurant_links"
+    - if owner?(restaurant)
+      = link_to "Edit #{restaurant.name}",  edit_restaurant_path(restaurant), class: "restaurant_links"
+      = link_to "Delete #{restaurant.name}",restaurant_path(restaurant), method: :delete, class: "restaurant_links"
     - if !owner?(restaurant) && user_signed_in?
       = link_to "Review #{restaurant.name}",new_restaurant_review_path(restaurant), class: "restaurant_links"
 - else

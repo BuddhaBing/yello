@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # include Devise::Test::ControllerHelpers
   include Devise::Controllers::Helpers
+  include RestaurantsHelper
 
   helper_method :current_user
   # Prevent CSRF attacks by raising an exception.
