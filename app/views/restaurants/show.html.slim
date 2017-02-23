@@ -1,5 +1,10 @@
-p = @restaurant.name
-p = @restaurant.description
+h2 = @restaurant.name
+h3 = @restaurant.description
+div class="reviews"
+  h4
+    | Reviews
+  | Average rating: 
+  span class="stars" id="restaurant-#{@restaurant.id}-rating" = "★" * @restaurant.rating
 - @restaurant.reviews.all.each do |review|
   p = review.thoughts
     = review.rating
