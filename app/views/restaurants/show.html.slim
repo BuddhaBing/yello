@@ -1,9 +1,13 @@
-h2 = @restaurant.name
-h3 = @restaurant.description
+
+p = @restaurant.name
+p = @restaurant.description
+img src="#{@restaurant.rest_image(:large)}"
+
+
 div class="reviews"
   h4
     | Reviews
-  | Average rating: 
+  | Average rating:
   span class="stars" id="restaurant-#{@restaurant.id}-rating" = star_icons(@restaurant.rating)
   - @restaurant.reviews.all.each do |review|
     article.review
