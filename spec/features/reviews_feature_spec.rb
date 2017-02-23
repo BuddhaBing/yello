@@ -77,5 +77,12 @@ feature 'reviewing' do
       expect(page).to have_content("Updated review: Awesome!")
     end
 
+    scenario "users are redirected if they try to visit an edit review url for reviews they did not write" do
+      sign_out
+      visit "/restaurants/#{Restaurant.first.id}/reviews/#{Review.first.id}/edit"
+      expect(current_path).to eq '/restaurants'
+      expect(page).to have_content "You can only edit reviews that you wrote"
+    end
+
   end
 end
