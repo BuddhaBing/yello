@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'rails-i18n', '~> 4.0.0' 
+gem 'rails-i18n', '~> 4.0.0'
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
@@ -56,6 +56,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'byebug'
+  gem 'figaro'
+  gem "paperclip", '~> 5.0'
+  gem 'aws-sdk', '~> 2.0'
 end
 
 group :development do

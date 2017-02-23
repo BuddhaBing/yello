@@ -1,5 +1,6 @@
 p = @restaurant.name
 p = @restaurant.description
+img src="#{@restaurant.rest_image(:large)}"
 - @restaurant.reviews.all.each do |review|
   p = review.thoughts
     = review.rating
