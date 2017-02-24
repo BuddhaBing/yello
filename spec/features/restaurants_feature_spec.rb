@@ -16,7 +16,10 @@ feature 'restaurants' do
 
     scenario 'can add location to resturants via google maps' do
       visit '/restaurants'
-      create_restaurant(location: "")
+      create_restaurant(location: "buckingham palace")
+      click_link 'Nandos'
+      expect(Restaurant.first.latitude).to be(51.5023131)
+      expect(page).to have_content 'Constitution Hill, London SW1A 1AA'
     end
 
     scenario 'should display a prompt to add a restaurant if the user is logged in' do

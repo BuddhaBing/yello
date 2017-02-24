@@ -1,11 +1,16 @@
 
 p = @restaurant.name
 p = @restaurant.description
-p = "phone number: #{@restaurant.telephone}"
-img src="#{@restaurant.rest_image(:large)}"
+- if @restaurant.telephone != ""
+  p = "phone number: #{@restaurant.telephone}"
+
+- if @restaurant.rest_image
+  img src="#{@restaurant.rest_image(:large)}"
 
 -if @restaurant.longitude
   iframe width="300" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvvkMB4nKreiEoe4uG5hFBoTvo5w3toAY&q=#{(@restaurant.latitude.to_s) + "," + (@restaurant.longitude.to_s)}"
+  = @restaurant.reverse_geocode
+
 
 div class="reviews"
   h4

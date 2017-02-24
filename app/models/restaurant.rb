@@ -16,6 +16,9 @@ class Restaurant < ActiveRecord::Base
   validates_with AttachmentSizeValidator, attributes: :rest_image, less_than: 3.megabytes
   after_validation :geocode
 
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode  # auto-fetch address
+
   def telephone=(value)
     value.gsub!(/\D/, '') if value.is_a?(String)
     write_attribute(:telephone, value)
