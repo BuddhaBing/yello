@@ -5,13 +5,20 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-
   body
-  - if !user_signed_in?
-    = link_to "Sign Up", new_user_registration_path, class: "session-link", id: "sign_up"
-    = link_to "Log In", new_user_session_path, class: "session-link", id: "login"
-  - else
-    = link_to('Logout', destroy_user_session_path, :method => :delete, class: "session-link")
-  = alert
-  = notice
-  = yield
+    header
+      .topbar
+        h1
+        nav.links
+          - if !user_signed_in?
+            = link_to "Sign Up", new_user_registration_path, class: "session-link", id: "sign_up"
+            = link_to "Log In", new_user_session_path, class: "session-link", id: "login"
+          - else
+            = link_to('Logout', destroy_user_session_path, :method => :delete, class: "session-link")
+    main
+      .wrapper
+        = alert
+        = notice
+        = yield
+    footer
+      .footer-middle
