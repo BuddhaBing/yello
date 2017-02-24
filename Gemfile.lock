@@ -89,6 +89,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     figaro (1.1.1)
       thor (~> 0.14)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.5.4)
@@ -151,6 +152,10 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.19.0)
+    phony (2.15.41)
+    phony_rails (0.14.5)
+      activesupport (>= 3.0)
+      phony (~> 2.15)
     poltergeist (1.13.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -297,12 +302,14 @@ DEPENDENCIES
   database_cleaner
   devise
   figaro
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook
   omniauth-google
   paperclip (~> 5.0)
   pg
+  phony_rails
   poltergeist
   pry
   pry-byebug

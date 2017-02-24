@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
-
+gem 'geocoder'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,6 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
 gem 'require_all'
+
+gem 'phony_rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
