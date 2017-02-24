@@ -1,8 +1,8 @@
 
 p = @restaurant.name
 p = @restaurant.description
-- unless @restaurant.telephone.empty?
-  p = "phone number: " + ("#{@restaurant.telephone}".phony_formatted(normalize: :GB, spaces: '-'))
+-if @restaurant.telephone
+  p = "phone number: " + (@restaurant.telephone.to_s.phony_formatted(normalize: :GB, spaces: '-'))
 
 
 img src="#{@restaurant.rest_image(:large)}"
