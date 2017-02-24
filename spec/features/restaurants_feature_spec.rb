@@ -11,14 +11,14 @@ feature 'restaurants' do
       visit '/restaurants'
       create_restaurant(phone_number: "01632-960000")
       click_link 'Nandos'
-      expect(page).to have_content 'phone number: 01632960000'
+      expect(page).to have_content 'phone number: 01632-960000'
     end
 
     scenario 'can add location to resturants via google maps' do
       visit '/restaurants'
       create_restaurant(location: "buckingham palace")
       click_link 'Nandos'
-      expect(Restaurant.first.latitude).to be(51.5023131)
+      expect(Restaurant.first.latitude.round(4)).to be(51.5023131.round(4))
       expect(page).to have_content 'Constitution Hill, London SW1A 1AA'
     end
 

@@ -1,6 +1,6 @@
 class Restaurant < ActiveRecord::Base
-  extend Geocoder::Model::ActiveRecord
   attr_accessor :address
+
   has_many :reviews, dependent: :destroy
   has_attached_file :rest_image, styles: {
     thumb: '100x100>',
@@ -9,18 +9,18 @@ class Restaurant < ActiveRecord::Base
     large: '500x500>',
   }
   geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
 
   validates :user_id, presence: true
   validates :name, length: { minimum: 3 }, uniqueness: true
   validates_attachment_content_type :rest_image, :content_type => /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :rest_image, less_than: 3.megabytes
-  after_validation :geocode
 
-  reverse_geocoded_by :latitude, :longitude
+  after_validation :geocode
   after_validation :reverse_geocode  # auto-fetch address
 
   def telephone=(value)
-    value.gsub!(/\D/, '') if value.is_a?(String)
+    value.gsub!(/[^+| |\d|-]/, '') if value.is_a?(String)
     write_attribute(:telephone, value)
   end
 
