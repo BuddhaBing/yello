@@ -37,7 +37,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
 gem 'require_all'
-gem 'gmaps4rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
