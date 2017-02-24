@@ -15,7 +15,7 @@ class Restaurant < ActiveRecord::Base
 
   def telephone=(value)
     value.gsub!(/\D/, '') if value.is_a?(String)
-    write_attribute(:telephone, value.to_i)
+    write_attribute(:telephone, value)
   end
 
   def rating
