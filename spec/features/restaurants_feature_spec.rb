@@ -9,9 +9,9 @@ feature 'restaurants' do
 
     scenario 'can add phone number to resturant' do
       visit '/restaurants'
-      create_restaurant(phone_number: "01632 960000")
+      create_restaurant(phone_number: "01632-960000")
       click_link 'Nandos'
-      expect(page).to have_content 'phone number: 01632 960000'
+      expect(page).to have_content 'phone number: 01632960000'
     end
 
     scenario 'should display a prompt to add a restaurant if the user is logged in' do
