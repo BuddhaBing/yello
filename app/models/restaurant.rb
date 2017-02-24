@@ -1,3 +1,5 @@
+require 'geocoder'
+
 class Restaurant < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_attached_file :rest_image, styles: {
@@ -12,6 +14,10 @@ class Restaurant < ActiveRecord::Base
   validates_attachment_content_type :rest_image, :content_type => /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :rest_image, less_than: 3.megabytes
 
+  def address=(value)
+    geocoded_by :address
+    after_validation :geocode
+  end
 
   def telephone=(value)
     value.gsub!(/\D/, '') if value.is_a?(String)

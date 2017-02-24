@@ -4,16 +4,8 @@ p = @restaurant.description
 p = "phone number: #{@restaurant.telephone}"
 img src="#{@restaurant.rest_image(:large)}"
 
-
-  
-div style="width: 800px;"
-  div id="basic_map" style='width: 800px; height: 400px;'
-  
-script src="http://maps.google.com/maps/api/js"
-script src="/app/assets/javascripts/map/gmap.js"
-
-  
-
+-if @restaurant.longitude
+  iframe width="300" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvvkMB4nKreiEoe4uG5hFBoTvo5w3toAY&q=@#{@restaurant.latitude +"," + @restaurant.longitude}"
 
 div class="reviews"
   h4
