@@ -2,16 +2,29 @@ doctype html
 html
   head
     title Yello
+    link href="//fonts.googleapis.com/css?family=Julee&subset=latin" rel="stylesheet" type="text/css"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-
   body
-  - if !user_signed_in?
-    = link_to "Sign Up", new_user_registration_path, class: "session-link", id: "sign_up"
-    = link_to "Log In", new_user_session_path, class: "session-link", id: "login"
-  - else
-    = link_to('Logout', destroy_user_session_path, :method => :delete, class: "session-link")
-  = alert
-  = notice
-  = yield
+    header
+      .topbar
+        .notice
+          = alert
+          = notice
+        h1 
+          a href="/"
+            img.logo src="/images/yello-logo.png" alt="Yello" title="Yello"
+        nav.links
+          - if !user_signed_in?
+            = link_to "Sign Up", new_user_registration_path, class: "session-link", id: "sign_up"
+            = link_to "Log In", new_user_session_path, class: "session-link", id: "login"
+          - else
+            = link_to('Logout', destroy_user_session_path, :method => :delete, class: "session-link")
+            = link_to 'Add a restaurant', new_restaurant_path, class: "session-link"
+    main
+      .content
+        = yield
+    footer
+      .footer-middle
+        | Yello is a Yelp clone built on rails by Makers Academy students Ben Carson, James Turner, Joe Marriott and Rob Brentnall

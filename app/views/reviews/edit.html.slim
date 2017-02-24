@@ -1,6 +1,7 @@
-= form_for [@restaurant, @review], method: :patch do |f|
-  = f.label :thoughts
-  = f.text_area :thoughts
-  = f.label :rating
-  = f.select :rating, (1..5)
-  = f.submit 'Edit review'
+.review-edit
+  = form_for [@restaurant, @review], method: :patch do |f|
+    = f.label :thoughts
+    = f.text_area :thoughts
+    = f.label :rating
+    = f.select :rating, (1..5)
+    = f.submit 'Edit review'

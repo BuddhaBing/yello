@@ -3,6 +3,7 @@ module ReviewsHelper
   def star_icons(number)
     star = "★"
     half_star = "½"
+    return star * 3 if number == 0
     return star * (number / 2) if number % 2 == 0
     return star * (number / 2).floor + half_star
   end
