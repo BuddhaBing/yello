@@ -13,6 +13,11 @@ class Restaurant < ActiveRecord::Base
   validates_with AttachmentSizeValidator, attributes: :rest_image, less_than: 3.megabytes
 
 
+  def phone=(value)
+    value.gsub!(/\D/, '') if value.is_a?(String)
+    write_attribute(:phone, value.to_i)
+  end
+
   def rating
     return 0 if reviews.count == 0
     (reviews.map { |review| review.rating }.reduce(0.0, :+) / reviews.count * 2).floor
