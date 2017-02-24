@@ -10,97 +10,153 @@ body {
 
 h1 {
     padding-top: 0.75em;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
     margin: 0;
     text-align: center;
     color: #e8e84a;
     font-family: "Julee", sans-serif;
     font-size: 4vw;
+    cursor: pointer;
 }
-
 // header
 .topbar {
-    background-color: transparent;
-    position: fixed;
     width: 100%;
+    height: 380px;
+    background: url("/images/chefs-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav.links {
     position: absolute;
     top: 1.5em;
-    right: 1.5em;
+    left: 1.5em;
 }
 
 nav.links a {
     color: $white;
     text-decoration: none;
+    text-shadow: 0 1px 5px black;
+    font-size: 1.2em;
 }
 
-.banner {
-    height: 300px;
-    background: url(/images/banner_temp.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+.logo {
+    width: 200px;
 }
+
 .content {
     max-width: 95%;
-    width: 1000px;
+    width: 1500px;
     margin: auto;
+    height: 100vh;
+    margin-top: -4em;
+    box-shadow: 0 0 5px 0 #393939;
+    padding: 2em;
+    background-color: white;
+    border-radius: 25px;
 }
-
-// main
 // .content
-
 // footer
 // .footer-middle
 
-
-
-////// RESTAURANTS START
-
-
-.session-link, .restaurant_links {
-    margin-right: .5em;
+article.restaurants {
+    float: left;
+    width: 22%;
+    margin-left: 1.5%;
+    margin-right: 0;
+    min-height: 330px;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    box-shadow: 0 0 2px 1px #bababa inset;
+    border-radius: 10px;
 }
+
+article.restaurants img {
+    width: 100%;
+}
+
+.restaurant-title {
+    background: #535353;
+    color: #fff;
+    padding: 0.3em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.restaurant-title a {
+    display: block;
+    margin-right: 0.5em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.links a {
+    color: deepskyblue;
+    text-decoration: none;
+}
+
+.links {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    text-align: center;
+}
+
+.notice {
+    color: $white;
+    text-shadow: 0 1px 5px black;
+    font-size: 1.2em;
+    position: absolute;
+    top: 1em;
+    text-align: center;
+    left: auto;
+    width: 100%;
+}
+////// RESTAURANTS START
+.restaurant_links,
+.session-link {
+    margin-right: 0.5em;
+}
+
 .stars {
     color: orange;
     letter-spacing: 2.5px;
 }
-
 ////// RESTAURANTS END
-
 ////// REVIEWS START
-
 $gray-bg: #535353;
 
 .review {
-  margin: 1em 0 1em 0;
-  box-shadow: 0 0 4px 0px #C5C5C5 inset;
-  padding: .8em;
-  border: 1px solid #d1d1d1;
+    margin: 1em 0;
+    box-shadow: 0 0 4px 0 #C5C5C5 inset;
+    padding: 0.8em;
+    border: 1px solid #d1d1d1;
 }
+
 .review-heading {
-  background: $gray-bg;
-  color: #fff;
-  padding: .3em;
-  margin-bottom: .5em;
+    background: $gray-bg;
+    color: #fff;
+    padding: 0.3em;
+    margin-bottom: 0.5em;
 }
+
 .thoughts {
-  margin-bottom: .5em;
-  border: 1px solid #bababa;
-  padding: 1em;
+    margin-bottom: 0.5em;
+    border: 1px solid #bababa;
+    padding: 1em;
 }
+
 .reviewer-name {
-  font-family: sans-serif;
-  margin-right: .5em;
-  margin-left: .2em;
-}
-.delete-review, .edit-review {
-  font-family: sans-serif;
-  font-size: 85%;
-  color: deepskyblue;
-  margin-right: 1em;
+    font-family: sans-serif;
+    margin-right: 0.5em;
+    margin-left: 0.2em;
 }
 
+.delete-review,
+.edit-review {
+    font-family: sans-serif;
+    font-size: 85%;
+    color: deepskyblue;
+    margin-right: 1em;
+}
 ////// REVIEWS END
-
