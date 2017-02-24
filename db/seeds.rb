@@ -9,6 +9,11 @@ user3 = User.create user_name: 'Rocky'     , email: 'rocky@example.com', passwor
 restaurant1 = Restaurant.create(name: "Nandos", description: "Cheeky", user_id: user1.id)
 restaurant2 = Restaurant.create(name: "KFC",    description: "Dirty",  user_id: user1.id)
 restaurant3 = Restaurant.create(name: "Wimpy",  description: "Filthy", user_id: user3.id)
+restaurant4 = Restaurant.create(name: "Burger King", description: "Cheeky", user_id: user1.id)
+restaurant5 = Restaurant.create(name: "Pizza Hut",    description: "Dirty",  user_id: user1.id)
+restaurant6 = Restaurant.create(name: "McDonalds",  description: "Filthy", user_id: user3.id)
+restaurant7 = Restaurant.create(name: "Subway", description: "Cheeky", user_id: user1.id)
+restaurant8 = Restaurant.create(name: "Five Guys",    description: "Dirty",  user_id: user1.id)
 
 Review.create(thoughts: "nasty" , rating: 1, restaurant_id: restaurant1.id, user_id: user2.id)
 Review.create(thoughts: "smelly", rating: 4, restaurant_id: restaurant2.id, user_id: user2.id)

@@ -2,7 +2,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
   def facebook
-    p Rails.application.secrets.facebook_app_id
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?

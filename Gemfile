@@ -6,7 +6,7 @@ gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +44,8 @@ gem 'phony_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "paperclip", '~> 5.0'
+gem 'aws-sdk', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,8 +61,6 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'byebug'
   gem 'figaro'
-  gem "paperclip", '~> 5.0'
-  gem 'aws-sdk', '~> 2.0'
 end
 
 group :development do
