@@ -14,6 +14,11 @@ feature 'restaurants' do
       expect(page).to have_content 'phone number: 01632960000'
     end
 
+    scenario 'can add location to resturants via google maps' do
+      visit '/restaurants'
+      create_restaurant(location: "")
+    end
+
     scenario 'should display a prompt to add a restaurant if the user is logged in' do
       visit '/restaurants'
       expect(page).to have_content 'No restaurants yet'
