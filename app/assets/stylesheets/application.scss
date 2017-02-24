@@ -3,6 +3,7 @@ $yello: rgb(232, 232, 74);
 $white: #fff;
 
 body {
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -47,24 +48,28 @@ nav.links a {
 .content {
     max-width: 95%;
     width: 1500px;
-    margin: auto;
-    height: 100vh;
-    margin-top: -4em;
-    box-shadow: 0 0 5px 0 #393939;
-    padding: 2em;
-    background-color: white;
     border-radius: 25px;
+    margin: auto;
+    margin-top: -4em;
+    margin-bottom: 3em;
 }
-// .content
-// footer
-// .footer-middle
+
+.footer-middle {
+    padding-top: 2em;
+    max-width: 95%;
+    width: 1500px;
+    color: $white;
+    font-size: 1.2em;
+    text-align: center;
+    margin: auto;
+}
 
 article.restaurants {
-    float: left;
+    display: inline-block;
     width: 22%;
     margin-left: 1.5%;
     margin-right: 0;
-    min-height: 330px;
+    min-height: 350px;
     margin-bottom: 2em;
     padding: 0.5em;
     box-shadow: 0 0 2px 1px #bababa inset;
@@ -112,6 +117,13 @@ article.restaurants img {
     left: auto;
     width: 100%;
 }
+
+footer {
+    background-color: #222;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+}
 ////// RESTAURANTS START
 .restaurant_links,
 .session-link {
@@ -121,6 +133,22 @@ article.restaurants img {
 .stars {
     color: orange;
     letter-spacing: 2.5px;
+    text-align: center;
+    font-size: 1.25vw;
+}
+
+.no-stars {
+    color: $white;
+    letter-spacing: 2.5px;
+    text-align: center;
+    font-size: 1.25vw;
+}
+
+.edit-restaurant, .new-restaurant, .new-review, .review-edit {
+    box-shadow: 0 0 5px 0 #393939;
+    padding: 5em;
+    background-color: white;
+    border-radius: 25px;
 }
 ////// RESTAURANTS END
 ////// REVIEWS START

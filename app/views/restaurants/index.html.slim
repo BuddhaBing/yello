@@ -5,7 +5,10 @@
         img src="#{restaurant.rest_image(:large)}" alt="#{restaurant.name}"
       header.restaurant-title 
         = link_to restaurant.name, restaurant_path(restaurant), class: "restaurant_links"
-        span class="stars" id="restaurant-#{restaurant.id}-rating" = star_icons(restaurant.rating)
+      - if restaurant.rating == 0
+        .no-stars id="restaurant-#{restaurant.id}-rating" = star_icons(restaurant.rating)
+      - else
+        .stars id="restaurant-#{restaurant.id}-rating" = star_icons(restaurant.rating)
       .links
         - if owner?(restaurant)
           = link_to "Edit #{restaurant.name}",  edit_restaurant_path(restaurant), class: "restaurant_links"
