@@ -1,8 +1,8 @@
-## YELLO (Yelp Clone)
+# Yello (Yelp Clone)
 
-Week 8 project for Makers Academy - Project track
+## [Makers Academy](http://www.makersacademy.com) - Week 8 - Group Project
 
-[https://yello-project.herokuapp.com/](https://yello-project.herokuapp.com/)
+[Heroku Demo](https://yello-project.herokuapp.com/)
 ***
 
 
@@ -78,12 +78,3 @@ Although our version 2 serves its purpose - it's limited in a few respects. Firs
 * Users can delete their own reviews
 
 ***
-
-
-
-
-
-
-
-
-
